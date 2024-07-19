@@ -1,0 +1,27 @@
+
+  #background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    min-height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    background-image: url('/home/hp/HRMS/React/HRMS/login.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    color: #ffffff; 
+    font-size: 24px;
+    padding: 2rem;
+}
+
+
+
+
+html,body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
