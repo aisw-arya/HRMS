@@ -14,8 +14,8 @@ const Designation = () => {
   console.log(designation,"listtttttt")
   const navigate=useNavigate();
 
-  const handleClick =() =>{
-      navigate('/');
+  const handleClickBack =() =>{
+      navigate('/display');
   }
 
  
@@ -25,8 +25,8 @@ const Designation = () => {
   
   const handleDelete=(designation_id)=>{
     deleteDesignation(designation_id);
-    console.log("deleted")
-  };
+    dispatch(getDesignationListData());
+  }
   
   return (
     <>
@@ -35,7 +35,9 @@ const Designation = () => {
       ) : (
         <>
         <Form/>
-        <Button variant="outlined" color="secondary" onClick={handleClick}>back</Button>
+        <div style={{ position: "fixed", top: 0, left: 0, padding: "5px" }}>
+        <Button variant="outlined" color="secondary" onClick={handleClickBack}>back</Button>
+      </div>
         <div
   style={{
     display: "flex",

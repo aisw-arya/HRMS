@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { getDesignationListData } from "../../store/designationList"; 
 
 const initialValues = {
     designation: '',
@@ -37,6 +38,7 @@ export default function Update({ designationData, designation_id }) {
 
   const handleSuccessCB = () => {
     handleClose();
+    dispatch(getDesignationListData())
   };
 
   const handleAdddesignation = (e) => {
@@ -58,12 +60,12 @@ export default function Update({ designationData, designation_id }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Update Designation
+          <Typography id="modal-modal-title" variant="h6" component="h2" style={{color:'white',fontSize:'20px', fontFamily:'inherit'}}>
+            UPDATE DESIGNATION 
           </Typography>
           <form id="my-form" onSubmit={handleAdddesignation}>
             <div style={{ marginBottom: '15px' }} id="form-group">
-              <label>Designation:</label>
+              <label style={{color:"white", fontSize:"20px"}}>Designation:</label>
               <input
                 type="text"
                 name="designation"
@@ -74,7 +76,7 @@ export default function Update({ designationData, designation_id }) {
               />
             </div>
             <div style={{ marginBottom: '15px' }} id="form-group">
-              <label>Total Leave:</label>
+              <label style={{color:"white", fontSize:"20px"}}>Total Leave:</label>
               <input
                 type="text"
                 name="total_leave"
@@ -87,6 +89,9 @@ export default function Update({ designationData, designation_id }) {
             <div>
               <button type="submit" >
                 Update
+              </button>
+              <button onClick={handleClose} >
+                Cancel
               </button>
             </div>
           </form>

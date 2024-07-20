@@ -24,7 +24,7 @@ export default function UpdateLeave({ employeeData, employee_id }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-    setLeave(initialValues);
+    // setLeave(initialValues);
   };
 
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function UpdateLeave({ employeeData, employee_id }) {
           </Typography>
           <form id="my-form" onSubmit={handleAddleave}>
             <div style={{ marginBottom: '15px' }} id="form-group">
-              <label>Employee Name:</label>
+              <label style={{color:"white", fontSize:"20px"}}>Employee Name:</label>
               <input
                 type="text"
                 name="employee_name"
@@ -85,7 +85,7 @@ export default function UpdateLeave({ employeeData, employee_id }) {
               />
             </div>
             <div style={{ marginBottom: '15px' }} id="form-group">
-              <label>Leave Taken:</label>
+              <label style={{color:"white", fontSize:"20px"}}>Leave Taken:</label>
               <input
                 type="number"
                 name="leave_take"
@@ -101,6 +101,7 @@ export default function UpdateLeave({ employeeData, employee_id }) {
               <button type="submit" >
                 Update
               </button>
+              <button onClick={handleClose}>Cancel</button>
             </div>
           </form>
         </Box>
@@ -115,19 +116,19 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  border: '1px solid #ccc',    // Light grey border
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',  // Grey box shadow
+  border: '1px solid #ccc',    
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
   borderRadius: '8px',
   padding: '20px',
-  backgroundColor: 'transparent',  // Transparent background
+  backgroundColor: 'transparent',  
 };
 
 const inputStyle = {
   width: '100%',
   padding: '10px',
   fontSize: '16px',
-  border: '1px solid #ccc',    // Light grey border for inputs
+  border: '1px solid #ccc',    
   borderRadius: '4px',
   marginBottom: '15px',
-  backgroundColor: '#f9f9f9',  // Light grey background for inputs
+  backgroundColor: '#f9f9f9',  
 };

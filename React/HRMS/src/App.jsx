@@ -3,7 +3,7 @@ import Display from "./pages/EmployeeDetails";
 import Employees from "./pages/Employee";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css'
-import Designation from "./pages/Designation"
+import Designation from "./pages/Designation";
 function App() {
   
   return (

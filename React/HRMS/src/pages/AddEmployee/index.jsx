@@ -60,21 +60,21 @@ const Form = () => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    border: '1px solid #ccc',    // Light grey border
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',  // Grey box shadow
+    border: '1px solid #ccc',   
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',  
     borderRadius: '8px',
     padding: '20px',
-    backgroundColor: 'transparent',  // Transparent background
+    backgroundColor: 'transparent',  
   };
   
   const inputStyle = {
     width: '100%',
     padding: '10px',
     fontSize: '16px',
-    border: '1px solid #ccc',    // Light grey border for inputs
+    border: '1px solid #ccc',    
     borderRadius: '4px',
     marginBottom: '15px',
-    backgroundColor: '#f9f9f9',  // Light grey background for inputs
+    backgroundColor: '#f9f9f9', 
   };
   
 
@@ -82,7 +82,7 @@ const Form = () => {
   const labelStyle = {
     marginBottom: '5px',
     display: 'block',
-    color: 'black',             // Dark ash color for labels
+    color: '#f9f9f9',            
   };
   
   
@@ -90,15 +90,15 @@ const Form = () => {
   return (
     <>
       <div id="m">
-        <Button onClick={handleOpen} >Add employee</Button>
+        <Button variant="outlined" color="secondary" onClick={handleOpen} >Add employee</Button>
         <Modal
           open={open}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description">
           <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2" style={{ marginBottom: '20px' }}>
-            Add Employee
+          <Typography id="modal-modal-title" variant="h6" component="h2" style={{ marginBottom: '20px' ,color:"whitesmoke"}}>
+            ADD EMPLOYEE
           </Typography>
           <form id="my-form">
             <div style={{ marginBottom: '15px', backgroundColor: 'transparent', padding: '10px', borderRadius: '4px' }} id="form-group">
@@ -168,12 +168,20 @@ const Form = () => {
               />
             </div>
             {error}
+            <center>
             <button
               type="submit"
               onClick={handleAddEmployee}
             >
               Add
             </button>
+            <button
+              
+              onClick={handleClose}
+            >
+              Cancel
+            </button>
+            </center>
           </form>
         </Box>
         

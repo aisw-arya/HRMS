@@ -71,12 +71,12 @@ const Form = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    <Typography id="modal-modal-title" variant="h6" component="h2"style={{color:"white", fontSize:"20px"}}>
                         Add Designation
                     </Typography>
                     <form onSubmit={handleAddDesignation}>
                         <div style={{ marginBottom: '15px' }}>
-                            <label>Name:</label>
+                            <label style={{color:"white", fontSize:"20px"}}>Name:</label>
                             <input
                                 type="text"
                                 name="designation"
@@ -87,7 +87,7 @@ const Form = () => {
                             />
                         </div>
                         <div style={{ marginBottom: '15px' }}>
-                            <label>Total Leave:</label>
+                            <label style={{color:"white", fontSize:"20px"}}>Total Leave:</label>
                             <input
                                 type="text"
                                 name="total_leave"
@@ -101,6 +101,7 @@ const Form = () => {
                             <Button type="submit" variant="contained" color="primary">
                                 Add
                             </Button>
+                            <button onClick={handleClose}>Cancel</button>
                         </div>
                     </form>
                 </Box>
