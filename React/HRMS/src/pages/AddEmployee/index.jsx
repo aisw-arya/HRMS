@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { addEmployee } from "../../store/addEmployee";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -22,6 +22,7 @@ const Form = () => {
   const [open, setOpen] = useState(false);
   const [employee, setEmployee] = useState(initialValues);
   const [error,setError] =useState(null);
+  const designation = useSelector((state) => state.getDesignationListData.data);
 
   const handleOpen = () => setOpen(true);
 
@@ -156,16 +157,20 @@ const Form = () => {
               />
             </div>
             <div style={{ marginBottom: '15px', backgroundColor: 'transparent', padding: '10px', borderRadius: '4px' }} id="form-group">
-              <label style={labelStyle}>Designation name:</label>
-              <input
-                type="text"
-                name="designation"
-                value={employee.designation}
-                onChange={handleInputChange}
-                
-                required
-              />
-            </div>
+                <label style={labelStyle}>Designation name:</label>
+                <select
+                  name="designation"
+                  value={employee.designation}
+                  onChange={handleInputChange}
+                  required
+                  style={inputStyle}
+                >
+
+                {designation.map(designation =>(<option key={designation.designation}value={designation.designation}>{designation.designation}</option>
+
+                ))}
+                </select>
+              </div>
             {error}
             <center>
             <button

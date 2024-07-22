@@ -128,19 +128,22 @@ export default function Update({ employeeData, employee_id }) {
                 required
               />
             </div>
-            <div style={{ marginBottom: "15px" }} id="form-group">
-              <label style={{ color: "white", fontSize: "20px" }}>
-                Designation name:
-              </label>
-              <input
-                type="text"
-                name="designation"
-                value={employee.designation}
-                onChange={handleInputChange}
-                style={inputStyle}
-                required
-              />
-            </div>
+    
+            <div style={{ marginBottom: '15px', backgroundColor: 'transparent', padding: '10px', borderRadius: '4px' }} id="form-group">
+                <label >Designation name:</label>
+                <select
+                  name="designation"
+                  value={employee.designation}
+                  onChange={handleInputChange}
+                  required
+                  style={inputStyle}
+                >
+
+                {designation.map(designation =>(<option key={designation.designation}value={designation.designation}>{designation.designation}</option>
+
+                ))}
+                </select>
+              </div>
  
 
             <div>
