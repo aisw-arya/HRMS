@@ -344,10 +344,10 @@ class OneEmployeeListTestCase(unittest.TestCase):
         db.session.add(test_employee) 
         db.session.commit()     
         
-        response = self.client.get('/employees')
+        response = self.client.get('/employee/1')
         self.assertEqual(response.status_code, 200)
         data = json.loads(response.data)
-        self.assertEqual(data,[{'address': 'Ekm',
+        self.assertEqual(data,{'address': 'Ekm',
                               'des_id': 1,
                               'designation': 'Manager',
                               'email': 'test@gamil.com',
@@ -356,11 +356,11 @@ class OneEmployeeListTestCase(unittest.TestCase):
                               'image': 'url',
                               'leave_take': 0,
                               'phone_number': '1234567890',
-                              'total_leave': 10}])
+                              'total_leave': 10})
         
     def test_employee_listing_no_value(self):   
         
-        response = self.client.get('/employees')
+        response = self.client.get('/employee/1')
         self.assertEqual(response.status_code, 404)
         data = json.loads(response.data)
         self.assertEqual(data['message'],'No employee found')

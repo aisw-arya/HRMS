@@ -5,21 +5,18 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import {getDesignationListData} from "../../store/designationList"
 
-const initialValues = {
-    designation: '',
-    total_leave: ''
-};
+
 
 const Form = () => {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
-    const [designation, setDesignation] = useState(initialValues);
+    const [designation, setDesignation] = useState("");
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
-        setDesignation(initialValues);
     };
 
     const handleInputChange = (e) => {
@@ -29,12 +26,15 @@ const Form = () => {
             [name]: value,
         });
     };
-    console.log(designation)
+    const handleSuccessCB=()=>{
+        handleClose();
+        dispatch(getDesignationListData());
+      }
 
     const handleAddDesignation = (e) => {
         e.preventDefault();
-        dispatch(addDesigntion({ data: designation }));
-        // handleClose();
+        dispatch(addDesigntion({ data: designation,successCB: handleSuccessCB }));
+        
     };
 
 
@@ -44,21 +44,21 @@ const Form = () => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: 400,
-        border: '1px solid #ccc',    // Light grey border
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',  // Grey box shadow
+        border: '1px solid #ccc',   
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',  
         borderRadius: '8px',
         padding: '20px',
-        backgroundColor: 'transparent',  // Transparent background
+        backgroundColor: 'transparent',  
       };
       
       const inputStyle = {
         width: '90%',
         padding: '10px',
         fontSize: '16px',
-        border: '1px solid #ccc',    // Light grey border for inputs
+        border: '1px solid #ccc',    
         borderRadius: '4px',
         marginBottom: '15px',
-        backgroundColor: '#f9f9f9',  // Light grey background for inputs
+        backgroundColor: '#f9f9f9', 
       };
 
     return (
@@ -89,7 +89,7 @@ const Form = () => {
                         <div style={{ marginBottom: '15px' }}>
                             <label style={{color:"white", fontSize:"20px"}}>Total Leave:</label>
                             <input
-                                type="text"
+                                type="number"
                                 name="total_leave"
                                 value={designation.total_leave}
                                 onChange={handleInputChange}

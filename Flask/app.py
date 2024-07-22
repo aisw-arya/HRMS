@@ -6,25 +6,20 @@ from flask_cors import CORS,cross_origin
 import datetime as dt
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:1234@localhost:5432/hrms"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:1234@localhost:5432/demo"
 app.config['SECRET_KEY'] = 'aiswarya'
 CORS(app)
 db.init_app(app)
 now = dt.datetime.now(dt.timezone.utc).isoformat() 
 
-@app.route("/")
-def home():
-    return "Hello, world"
+
 
 
 @app.route('/register', methods=['POST'])
 def register(): 
     data = request.json 
     username = data.get('user_name')
-    password = data.get('password')
-    existing_user = Hr.query.filter_by(user_name=username).first() 
-    if existing_user: return jsonify({'message': 'Username already exists. Please choose a different username.'}), 400
-    
+    password = data.get('password')    
     new_hr = Hr(user_name=username)
     new_hr.set_password(password)
     db.session.add(new_hr) 

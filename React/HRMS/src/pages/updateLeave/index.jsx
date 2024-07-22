@@ -19,12 +19,10 @@ export default function UpdateLeave({ employeeData, employee_id }) {
   const [open, setOpen] = useState(false);
   const [leave, setLeave] = useState(initialValues);
   const [error,setError] =useState(null);
-  // console.log(leave,"page updateleave")
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-    // setLeave(initialValues);
   };
 
   useEffect(() => {
@@ -44,7 +42,6 @@ export default function UpdateLeave({ employeeData, employee_id }) {
     handleClose();
   };
   const handleErrorCB=(data)=>{
-    // console.log(data)
     setError(data)
     return(data)
   }

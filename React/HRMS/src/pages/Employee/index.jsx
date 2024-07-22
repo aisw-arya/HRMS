@@ -20,32 +20,31 @@ const Employees = () => {
   }, [dispatch, employee_id]);
 
   const handleClick = () => {
-    navigate("/display");
+    navigate("/home");
   };
   console.log(employee,"vcrd")
 
   const generateVCard = (employee) => {
-    // Create a new vCard
+    
     const vCard = vCardsJS();
 
-    // Set properties from employee data
     vCard.firstName = employee.employee_name.split(" ")[0];
     vCard.lastName = employee.employee_name.split(" ")[1];
     vCard.organization = "Your Company Name";
     vCard.photo.attachFromUrl(employee.image, "JPEG");
-    vCard.workPhone = employee.phone_number; // Example phone number
+    vCard.workPhone = employee.phone_number; 
     vCard.title = employee.designation;
-    vCard.email = employee.email; // Example email
+    vCard.email = employee.email; 
     vCard.note = "Notes about the employee";
-    vCard.address = employee.address; // Example address
+    vCard.address = employee.address;
 
-    // Generate the vCard string
+
     const vCardString = vCard.getFormattedString();
 
-    // Create a Blob from the vCard string
+    
     const blob = new Blob([vCardString], { type: "text/vcard" });
 
-    // Use file-saver to save the vCard
+   
     saveAs(blob, `${employee.employee_name.replace(/\s+/g, "_")}.vcf`);
   };
 
@@ -60,7 +59,8 @@ const Employees = () => {
             variant="outlined"
             color="secondary"
             onClick={handleClick}
-            style={{ marginBottom: "1rem" }}
+            style={{ marginBottom: "1rem" ,position: "fixed", top: 0,left:0, padding: "5px"}}
+            
           >
             Back
           </Button>
@@ -68,10 +68,13 @@ const Employees = () => {
           <div
             style={{
               display: "grid",
-              gap: "20px",
+              gap: "30px",
               gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
               maxWidth: "1200px",
               margin: "0 auto",
+              position: "fixed",
+               top: 50,
+               left:600,
             }}
           >
              
@@ -99,14 +102,29 @@ const Employees = () => {
                     color="textSecondary"
                     style={{ textAlign: "center", marginBottom: "0.5rem" }}
                   >
-                    Leave Taken: {employee.leave_take}
+                    Designation: {employee.designation}
+                  </Typography>
+                  
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    style={{ textAlign: "center" }}
+                  >
+                    Address: {employee.address}
                   </Typography>
                   <Typography
                     variant="body2"
                     color="textSecondary"
                     style={{ textAlign: "center" }}
                   >
-                    Designation: {employee.designation}
+                    Phone Number: {employee.phone_number}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    style={{ textAlign: "center" }}
+                  >
+                    Email: {employee.email}
                   </Typography>
                 </CardContent>
                 <CardActions style={{ justifyContent: "space-around" }}>

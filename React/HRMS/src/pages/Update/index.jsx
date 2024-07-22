@@ -22,7 +22,6 @@ export default function Update({ employeeData, employee_id }) {
   const [employee, setEmployee] = useState(initialValues);
   const designation = useSelector((state) => state.getDesignationListData.data);
   console.log(designation,"designation");
-  // const [selectedOption, setSelectedOption] = useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
@@ -31,7 +30,6 @@ export default function Update({ employeeData, employee_id }) {
 
   useEffect(() => {
     setEmployee(employeeData);
-    // console.log(employeeData,"employeeData")
   }, [employeeData]);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -143,23 +141,7 @@ export default function Update({ employeeData, employee_id }) {
                 required
               />
             </div>
-            <label style={{ color: "white", fontSize: "20px" }}>
-              Designation name:
-            </label>
-            <select
-              name="des_id"
-              value={employee.des_id}
-              onChange={handleInputChange}
-              style={inputStyle}
-              required
-            >
-              <option value="">Select...</option>
-              {designation.map((data) => (
-                <option key={data.des_id} value={data.des_id}>
-                  {data.designation_name}
-                </option>
-              ))}
-            </select>
+ 
 
             <div>
               <button type="submit">Add</button>
@@ -177,19 +159,19 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  border: "1px solid #ccc", // Light grey border
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Grey box shadow
+  border: "1px solid #ccc", 
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", 
   borderRadius: "8px",
   padding: "20px",
-  backgroundColor: "transparent", // Transparent background
+  backgroundColor: "transparent", 
 };
 
 const inputStyle = {
   width: "100%",
   padding: "10px",
   fontSize: "16px",
-  border: "1px solid #ccc", // Light grey border for inputs
+  border: "1px solid #ccc", 
   borderRadius: "4px",
   marginBottom: "15px",
-  backgroundColor: "#f9f9f9", // Light grey background for inputs
+  backgroundColor: "#f9f9f9", 
 };

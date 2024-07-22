@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 80vh;
-  width: 70vw; 
-  background-image: url('/home/hp/HRMS/React/HRMS/office_image.jpg'); 
+  min-height: 100vh;
+  width: 100vw; 
+  background-image: url('/home/hp/HRMS/React/HRMS/login.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@
 /* body {
   margin: 0;
   padding: 0;
-  background-image: url('/home/hp/HRMS/React/HRMS/office_image.jpg'); /* Replace with your image path */
+  background-image: url('/home/hp/HRMS/React/HRMS/office_image.jpg'); 
   /* background-size: cover;
   background-position: center;
 } */ */
@@ -30,7 +30,6 @@ form {
   border-radius: 5px;
   background-color: #f9f9f9;
 } */
-
 
 
 label {

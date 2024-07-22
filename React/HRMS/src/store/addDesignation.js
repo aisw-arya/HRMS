@@ -7,10 +7,8 @@ const initialState ={
 }
 export const addDesigntion = createAsyncThunk(
     "addDesigntion",
-    async({data})=>{
-        console.log(data,"data")
-        const response = await AddDesgnationApi(data)
-        // console.log(data,"data")
+    async({data,successCB})=>{
+        const response = await AddDesgnationApi(data,successCB)
         return response;
     }
 )

@@ -8,37 +8,10 @@ import Update from "../Update/index";
 import UpdateLeave from "../updateLeave";
 import { deleteEmployee } from "../../api/deleteEmployeeApi";
 import {logout} from "../../api/logoutApi"
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Slide from '@mui/material/Slide';
 
 
 
-function HideOnScroll(props) {
-  const { children, window } = props;
-  const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
-  });
-
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
-
-HideOnScroll.propTypes = {
-  children: PropTypes.element.isRequired,
-  window: PropTypes.func,
-};
-export default function Display(props) {
+export default function Display() {
   const dispatch = useDispatch();
   const employee = useSelector((state) => state.employeeData.data);
   const isLoading = useSelector((state) => state.employeeData.status);
@@ -65,29 +38,17 @@ export default function Display(props) {
 
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <HideOnScroll {...props}>
-        <AppBar sx={{backgroundColor:"white",height:"100%"}}>
-          <Toolbar>
-            <Typography variant="h6" component="div">
-
-            <img src="loho1.jpg" alt="" style={{width:"100px",height:"100px",borderRadius:"100px"}}/>
-            <h1 style={{color:"black"}}>Revolutionary Resolve </h1>
-            <img src="office_image.jpg" alt="" style={{width:"1800px",height:"600px"}}/>
-            <h5 style={{color:"red"}}>swipe up</h5>
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </HideOnScroll>
-      <Toolbar />
-      <Container sx={{}}>
-        <Box sx={{ my: 2 }}>
-          
+     
+           
 
     <>
+    <div style={{ position: "fixed", top: 0,left:"800px", padding: "5px" }}>
+     <img src="logo.jpg" alt="" style={{width:"100px",height:"100px",borderRadius:"100px"}}/>
+            <h1 style={{color:"black"}}>Revolutionary Resolve </h1>
+
+          
       <Form />
-      
+      </div>
       
       <div style={{ position: "fixed", top: 0, left: 0, padding: "5px" }}>
       <Button variant="outlined" color="secondary" onClick={() => navigate('/')}>Back</Button>
@@ -96,17 +57,17 @@ export default function Display(props) {
       <Button variant="outlined" color="secondary" onClick={handleClickLogout}>Logout</Button>
         </div>
 
-      {/* <div id="background"></div> */}
+      
       {isLoading === "pending" ? (
         <div>Loading ...</div>
       ) : (
         <>
         
 
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center",position: "fixed", top: "300px",left:"600px", padding: "5px",
+             overflow: "auto", maxHeight: "calc(100vh - 350px)"}}>
 
           <div >
-            <img src="loho1.jpg" alt="" style={{width:"100px",height:"100px"}}/>
 
             <h1 style={{ marginBottom: "20px" }}>Human Resource Management System</h1>
       
@@ -141,17 +102,12 @@ export default function Display(props) {
             
         
           </div>
-          <div style={{ position: "fixed", top: 50, right: 0, padding: "5px" }}>
-      <Button variant="outlined" color="secondary"  onClick={() => navigate('/designation')}>Designation</Button>
-      <Form />
-        </div>
           
         </>
       )}
     </>
 
-        </Box>
-      </Container>
-    </React.Fragment>
+       
   );
 }
+

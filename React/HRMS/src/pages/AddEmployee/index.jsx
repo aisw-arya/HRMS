@@ -38,7 +38,6 @@ const Form = () => {
     });
   };
   const handleErrorCB=(data)=>{
-    // console.log(data)
     setError(data)
     return(data)
   }

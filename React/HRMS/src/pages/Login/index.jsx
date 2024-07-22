@@ -17,14 +17,13 @@ const Login=()=>{
     const [error,setError] =useState(null);
     const navigate =useNavigate()
     const handleSubmit=()=>{
-      navigate('/display')
+      navigate('/home')
     }
 
     const handleSuccessCB=()=>{
       return(handleSubmit())
     }
     const handleErrorCB=(data)=>{
-      // console.log(data)
       setError(data)
       return(data)
     }
