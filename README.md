@@ -15,6 +15,12 @@
 - Install all packages in requirement.txt
   
       pip install -requirement.txt
+- React runnning port -http://localhost:5173
+
+- To run react 
+      
+       npm istall
+       npm run dev
 
   ### *unittest*
 - Change database to a new one on flask (app.py) to avoid missing of data from the oraginal database.
