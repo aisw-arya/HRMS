@@ -69,12 +69,13 @@ const Employees = () => {
             style={{
               display: "grid",
               gap: "30px",
-              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
               maxWidth: "1200px",
-              margin: "0 auto",
-              position: "fixed",
-               top: 50,
-               left:600,
+              margin: "10 auto",
+              top: 50,
+              left:600,
+              
+
             }}
           >
              
@@ -85,7 +86,7 @@ const Employees = () => {
                     alt={employee.employee_name}
                     style={{
                       maxWidth: "100%",
-                      height: "auto",
+                      height: "500px",
                       borderRadius: "8px",
                       marginBottom: "1rem",
                     }}

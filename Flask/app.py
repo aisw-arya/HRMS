@@ -6,7 +6,7 @@ from flask_cors import CORS,cross_origin
 import datetime as dt
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:1234@localhost:5432/demo"
+app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
 app.config['SECRET_KEY'] = 'aiswarya'
 CORS(app)
 db.init_app(app)
@@ -102,7 +102,7 @@ def update_designation(designation_id):
     designation = Designation.query.get(designation_id)
     
     if designation:
-        designation.designation_name = designation_name
+        designation.designation = designation_name
         designation.total_leave = total_leave
 
         db.session.commit()
@@ -115,10 +115,6 @@ def update_designation(designation_id):
 def delete_designation(designation_id):
     now = dt.datetime.now(dt.timezone.utc).isoformat() 
     designation = Designation.query.filter_by(designation_id=designation_id).first()
-    # if not designation:
-    #     return jsonify("desigantion not found")
-    # if designation.deleted_at != null:
-    #     return jsonify("Already deleted")
     designation.deleted_at=now
     db.session.commit()
     return jsonify({"message":"designation deleted successfully"}),200

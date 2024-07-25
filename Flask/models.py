@@ -7,6 +7,8 @@ from typing import List
 from sqlalchemy.sql import func
 from datetime import datetime,timezone
 
+db_uri='postgresql://postgres:1234@localhost:5432/hrms'
+
 class Base(DeclarativeBase):
     pass
 
@@ -59,7 +61,7 @@ class Employee(db.Model):
    
 
 
-def init_db(db_uri='postgresql://postgres:1234@localhost:5432/hrms'):
+def init_db(db_uri):
     logger = logging.getLogger("FlaskApp")
     engine = create_engine(db_uri)
     Base.metadata.create_all(engine)
